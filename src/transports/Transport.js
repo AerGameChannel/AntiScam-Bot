@@ -1,6 +1,6 @@
 class Transport {
   async log(data) {
-    throw new Error('implement write method')
+    throw new Error('implement write method');
   }
 }
 

@@ -4,7 +4,7 @@ const { Transport } = require('./Transport');
 class FSTransport extends Transport {
   constructor(filePath) {
     super();
-    
+
     this._filePath = filePath;
   }
 

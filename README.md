@@ -1,4 +1,5 @@
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
+
 # Description
 
 This bot deletes messages with scam links using configurable filter and logs everything in `blocks.txt`. You can change filter whenever you want, you don't even have to restart the bot to apply changes.
@@ -19,11 +20,7 @@ Before running your bot, you need to configure it
 ## Token
 
 After downloading bot, open the `config.json` file. It should look like this:
-`
-{
-	"TOKEN": "<Put bot token here>"
-}
-`
+`{ "TOKEN": "<Put bot token here>" }`
 
 Replace `<Put bot token here>` with your bot token.
 
