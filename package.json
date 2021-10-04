@@ -5,10 +5,14 @@
   "main": "src/index.js",
   "private": false,
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "dependencies": {
     "discord.js": "^13.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
   },
   "keywords": [],
   "author": "https://github.com/AerGameChannel",
