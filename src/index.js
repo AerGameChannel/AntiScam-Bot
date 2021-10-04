@@ -1,36 +1,31 @@
-const { Client, Intents, Permissions, Options } = require('discord.js');
-const cintents = new Intents([Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]);
-const fs = require("fs");
+const filter = require('../filter.json');
+const { Client, Intents } = require('discord.js');
+const { TOKEN, BLOCKS_PATH } = require('./config');
+const { FSTransport } = require("./transports/FSTransport");
+
+const blockLogTrasports = [new FSTransport(BLOCKS_PATH)];
+
 const client = new Client({ 
-    intents: cintents
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
 });
-const config = require("./config.json")
-const Break = {};
+
 client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`);
+  console.log(`Logged in as ${client.user.tag}`);
 });
 
-client.on("messageCreate", (message) =>  {
-    try {
-        if(message.author.bot) return;
-        fs.readFileSync(`filter.txt`, 'utf-8').toString().split(',').forEach(element => {
-            if(message.content.includes(element))
-            {
-                var blocks = fs.readFileSync(`blocks.txt`, 'utf-8');
-                var towrite = `${blocks}\nAuthor ID: ${message.author.id}, Username & Tag: ${message.author.tag}, Message content: ${message.content}`
-                fs.writeFileSync(`blocks.txt`, towrite, 'utf-8');
-                console.log(`Blocked scam link. Author ID: ${message.author.id}, Username & Tag: ${message.author.tag}, Message content: ${message.content}.`);
-                message.channel.send(`Scam link blocked! Author ID: ${message.author.id}, Username & Tag: ${message.author.tag}. The user has probably been hacked.`);
-                message.delete({reason: "AntiScam"});
-                throw Break;
-            }
+client.on("messageCreate", async (message) =>  {
+  if(message.author.bot) return;
 
-        })
-    }
-    catch (e) {
-        if (e !== Break) throw e;
-    }
+  const isScam = filter.some(filterWord => message.content.includes(filterWord));
+  if( !isScam ) return;
 
+  const log = `Author ID: ${message.author.id}, Username & Tag: ${message.author.tag}, Message content: ${message.content}\n`;
+  await Promise.all(blockLogTrasports.map(async transport => await transport.log(log)));
+
+  console.log(`Blocked scam link. Author ID: ${message.author.id}, Username & Tag: ${message.author.tag}, Message content: ${message.content}.`);
+
+  await message.channel.send(`Scam link blocked! Author ID: ${message.author.id}, Username & Tag: ${message.author.tag}. The user has probably been hacked.`);
+  await message.delete({reason: "AntiScam"});
 });
 
-client.login(config["TOKEN"]);
+client.login(TOKEN);
