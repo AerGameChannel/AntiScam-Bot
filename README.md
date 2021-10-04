@@ -30,7 +30,7 @@ Before running your bot, you need to configure it
 ## Token
 
 After downloading bot, create .env file and fill it. It should look like this:
-TOKEN=**TOKEN**
+TOKEN=`__TOKEN__`
 
 Replace `__TOKEN__` with your bot token.
 
