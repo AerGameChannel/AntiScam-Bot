@@ -1,10 +1,24 @@
 {
-  "dependencies": {
-    "discord.js": "^13.1.0",
-    "fs": "^0.0.1-security"
-  },
-  "main": "main.js",
+  "name": "antiscam-bot",
+  "version": "1.0.0",
+  "description": "Discord bot written on discord.js, deletes messages with scam links.",
+  "main": "src/index.js",
+  "private": false,
   "scripts": {
-    "start": "node main.js"
-  }
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "discord.js": "^13.1.0"
+  },
+  "keywords": [],
+  "author": "https://github.com/AerGameChannel",
+  "license": "GNU GPL v3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AerGameChannel/AntiScam-Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AerGameChannel/AntiScam-Bot/issues"
+  },
+  "homepage": "https://github.com/AerGameChannel/AntiScam-Bot#readme"
 }
