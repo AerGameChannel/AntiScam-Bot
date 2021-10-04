@@ -19,11 +19,11 @@ Before running your bot, you need to configure it
 
 ## Token
 
-After downloading bot, open the `config.json` file. It should look like this:
-`{ "TOKEN": "<Put bot token here>" }`
+After downloading bot, create .env file and fill it. It should look like this:
+TOKEN=**TOKEN**
 
-Replace `<Put bot token here>` with your bot token.
+Replace `__TOKEN__` with your bot token.
 
 ## Filter
 
-Your filter is located in `filter.txt` file. You can easily edit it. Just don't forget to separate every keyword with `,` :)
+Your filter is located in `filter.json` file. You can easily edit it. Just extends the filter array :)
