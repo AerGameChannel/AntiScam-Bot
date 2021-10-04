@@ -13,6 +13,16 @@ This bot runs on [node.js](https://nodejs.org). Recommended version is 16.5.0
 3. Configure your bot
 4. Run `npm start` to run your bot.
 
+# Development
+
+```bash
+# development(watch) mode
+npm run dev
+
+# format project code
+npm run format
+```
+
 # Configuring bot
 
 Before running your bot, you need to configure it
