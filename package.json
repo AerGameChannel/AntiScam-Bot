@@ -1,11 +1,12 @@
 {
   "name": "antiscam-bot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Discord bot written on discord.js, deletes messages with scam links.",
   "main": "src/index.js",
+  "type": "module",
   "private": false,
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node --experimental-json-modules src/index.js",
     "dev": "nodemon src/index.js",
     "prepare": "husky install",
     "format": "prettier . --write"
