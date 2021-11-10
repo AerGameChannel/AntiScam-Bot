@@ -1,0 +1,9 @@
+{
+  "logChannel": null,
+  "action": "DELETE",
+  "actionReason": "AntiScam",
+  "embedOptions": {
+    "description": "Scam link blocked!",
+    "color": "#ff0000"
+  }
+}
