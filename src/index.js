@@ -5,8 +5,14 @@ import config from './config.js';
 
 const blockLogTrasports = [new FSTransport(config.blocksPath)];
 
+let intents = [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES];
+
+if (config.action === 'BAN') {
+  intents.push(Intents.FLAGS.GUILD_BANS);
+}
+
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_BANS],
+  intents,
 });
 
 client.on('ready', () => {
