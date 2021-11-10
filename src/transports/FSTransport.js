@@ -1,5 +1,5 @@
-const fs = require('fs/promises');
-const { Transport } = require('./Transport');
+import { appendFile } from 'fs/promises';
+import Transport from './Transport.js';
 
 class FSTransport extends Transport {
   constructor(filePath) {
@@ -9,8 +9,8 @@ class FSTransport extends Transport {
   }
 
   async log(data) {
-    await fs.appendFile(this._filePath, data, 'utf-8');
+    await appendFile(this._filePath, data, 'utf-8');
   }
 }
 
-exports.FSTransport = FSTransport;
+export { FSTransport as default };

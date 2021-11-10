@@ -1,7 +1,7 @@
 class Transport {
-  async log(data) {
+  async log(_data) {
     throw new Error('implement write method');
   }
 }
 
-exports.Transport = Transport;
+export { Transport as default };
