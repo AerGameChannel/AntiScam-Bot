@@ -1,8 +1,22 @@
-require('dotenv').config();
+import { join } from 'path';
+import configData from '../config.json';
+import dotenv from 'dotenv';
+import __dirname from './dirname.js';
 
-const path = require('path');
+dotenv.config();
 
-const TOKEN = process.env.TOKEN;
-const BLOCKS_PATH = path.join(__dirname, '..', 'blocks.txt');
+const defaultEmbedOptions = {
+  description: 'Scam link blocked!',
+  color: 'RED',
+};
 
-module.exports = { TOKEN, BLOCKS_PATH };
+const config = {
+  token: process.env.TOKEN,
+  blocksPath: join(__dirname, '..', 'blocks.txt'),
+  logChannel: configData.logChannel || null,
+  action: configData.action || 'DELETE',
+  actionReason: configData.actionReason || 'AntiScam',
+  embedOptions: configData.embedOptions || defaultEmbedOptions,
+};
+
+export { config as default };
