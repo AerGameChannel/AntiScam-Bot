@@ -23,6 +23,9 @@ npm run dev
 npm run format
 ```
 
+# WARNING! Outdated info!
+I'll update the readme file later. All bot configuration is in config.json.
+
 # Configuring bot
 
 Before running your bot, you need to configure it
