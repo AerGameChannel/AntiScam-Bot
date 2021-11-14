@@ -7,13 +7,12 @@
   "private": false,
   "scripts": {
     "start": "node --experimental-json-modules src/index.js",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon --experimental-json-modules src/index.js",
     "prepare": "husky install",
     "format": "prettier . --write"
   },
   "dependencies": {
-    "discord.js": "^13.1.0",
-    "dotenv": "^10.0.0"
+    "discord.js": "^13.1.0"
   },
   "devDependencies": {
     "husky": "^7.0.2",

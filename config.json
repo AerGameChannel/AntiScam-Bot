@@ -1,9 +1,10 @@
 {
-  "logChannel": null,
-  "action": "DELETE",
+  "token": "put your bot's token here",
+  "logChannel": "put log channel id here",
+  "action": "BAN",
   "actionReason": "AntiScam",
   "embedOptions": {
-    "description": "Scam link blocked!",
+    "description": "Scam link blocked! User: `{MENTION}` ({ID})",
     "color": "#ff0000"
   }
 }
