@@ -23,20 +23,44 @@ npm run dev
 npm run format
 ```
 
-# WARNING! Outdated info!
-I'll update the readme file later. All bot configuration is in config.json.
-
 # Configuring bot
 
 Before running your bot, you need to configure it
 
-## Token
+After downloading bot, open `config.json` file and fill it. It should look like this:
 
-After downloading bot, create .env file and fill it. It should look like this:
-TOKEN=`__TOKEN__`
+```json
+{
+  "token": "put your bot's token here",
+  "logChannel": "put log channel id here",
+  "action": "BAN",
+  "actionReason": "AntiScam",
+  "embedOptions": {
+    "description": "Scam link blocked! User: {MENTION} ({ID})",
+    "color": "#ff0000"
+  }
+}
+```
 
-Replace `__TOKEN__` with your bot token.
+## "token"
+
+Replace the `put your token here` with your bot's token.
+
+## "logChannel"
+
+Replace the `put log channel id here` with the channel id you want to send blocking log to.
+Bot will send the log message to the same chat as message with scam link if id is invalid.
+
+## "action"
+
+Choose the action you want the bot to do when it detects a message with scam link
+Available values: "DELETE", "BAN", "IGNORE"
+
+## "actionReason"
+
+The reason used when user gets banned (If you chose `"BAN"` in `"action"`).
+Set it to whatever you want. Default: "AntiScam".
 
 ## Filter
 
-Your filter is located in `filter.json` file. You can easily edit it. Just extends the filter array :)
+Your filter is located in `filter.json` file. You can easily edit it. Just extend the filter array :)

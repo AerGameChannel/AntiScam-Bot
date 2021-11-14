@@ -1,9 +1,6 @@
 import { join } from 'path';
 import configData from '../config.json';
-import dotenv from 'dotenv';
 import __dirname from './dirname.js';
-
-dotenv.config();
 
 const defaultEmbedOptions = {
   description: 'Scam link blocked!',
@@ -11,7 +8,7 @@ const defaultEmbedOptions = {
 };
 
 const config = {
-  token: process.env.TOKEN,
+  token: configData.token,
   blocksPath: join(__dirname, '..', 'blocks.txt'),
   logChannel: configData.logChannel || null,
   action: configData.action || 'DELETE',
