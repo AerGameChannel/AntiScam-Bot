@@ -26,7 +26,7 @@ client.on('ready', () => {
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
-  const isScam = filter.some((filterWord) => message.content.includes(filterWord));
+  const isScam = filter.some((filterWord) => message.content.toLowerCase().includes(filterWord.toLowerCase()));
   if (!isScam) return;
 
   const log = `Author ID: ${message.author.id}, Username & Tag: ${message.author.tag}, Message content: "${message.content}"\n`;
