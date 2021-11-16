@@ -1,0 +1,12 @@
+{
+  "include": ["src", "src/transports"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "checkJs": false,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["es6"]
+  }
+}
