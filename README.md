@@ -34,9 +34,9 @@ After downloading bot, open `config.json` file and fill it. It should look like 
   "token": "put your bot's token here",
   "logChannel": "put log channel id here",
   "action": "BAN",
-  "actionReason": "AntiScam",
+  "actionReason": "AntiScam (Phishing link) MSG: {MESSAGE}",
   "embedOptions": {
-    "description": "Scam link blocked! User: {MENTION} ({ID})",
+    "description": "Scam link blocked! User: {MENTION} ({ID}) \nMessage: {MESSAGE}",
     "color": "#ff0000"
   }
 }
