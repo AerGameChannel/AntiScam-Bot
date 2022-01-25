@@ -54,7 +54,7 @@ client.on('messageCreate', async (message) => {
       }
       catch (error){
         console.error(error);
-        await logChannel.send(`Error occured. Message not deleted or not found`);
+        await logChannel.send(config.actionErrorDelete);
       }
 
     case 'BAN':
@@ -64,7 +64,7 @@ client.on('messageCreate', async (message) => {
       }
       catch (error){
         console.error(error);
-        await logChannel.send(`Error occured. Message not deleted or not found`);
+        await logChannel.send(config.actionErrorDelete);
       }
       try{
         const logBAN = config.actionReason
@@ -73,7 +73,7 @@ client.on('messageCreate', async (message) => {
       }
       catch (error){
         console.error(error);
-        await logChannel.send(`Error occured. User likely not banned! (Perm error?)`);
+        await logChannel.send(config.actionErrorBan);
       }
       break;
 
