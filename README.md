@@ -38,7 +38,9 @@ After downloading bot, open `config.json` file and fill it. It should look like 
   "embedOptions": {
     "description": "Scam link blocked! User: {MENTION} ({ID}) \nMessage: {MESSAGE}",
     "color": "#ff0000"
-  }
+  },
+  "actionErrorDelete": "Error occured. Message not deleted or not found",
+  "actionErrorBan": "Error occured. User likely not banned! (Perm error?)"
 }
 ```
 
@@ -60,6 +62,13 @@ Available values: "DELETE", "BAN", "IGNORE"
 
 The reason used when user gets banned (If you chose `"BAN"` in `"action"`).
 Set it to whatever you want. Default: "AntiScam".
+
+## "actionError"
+
+Messages that are sent when an error occurs.
+Users or groups can be pinged if added like so: \
+User: `<@!000000000000000000>`\
+Group: `<@&000000000000000000>`
 
 ## Filter
 
