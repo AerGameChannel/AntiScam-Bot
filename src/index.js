@@ -56,6 +56,7 @@ client.on('messageCreate', async (message) => {
         console.error(error);
         await logChannel.send(config.actionErrorDelete);
       }
+      break;
 
     case 'BAN':
       try{
