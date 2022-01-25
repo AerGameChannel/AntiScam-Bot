@@ -33,7 +33,9 @@ client.on('messageCreate', async (message) => {
   const logChannel = config.logChannel || message.channel;
   const logEmbedDesc = config.embedOptions.description
     .replace(/{MENTION}/g, message.author.tag)
-    .replace(/{ID}/g, message.author.id);
+    .replace(/{ID}/g, message.author.id)
+    .replace(/{MESSAGE}/g, message.content)
+    .replace ("://", ": //");
   const logEmbed = new MessageEmbed()
     .setColor(config.embedOptions.color)
     .setAuthor(message.author.tag, message.author.displayAvatarURL())
@@ -46,12 +48,34 @@ client.on('messageCreate', async (message) => {
 
   switch (config.action) {
     case 'DELETE':
-      await message.delete({ reason: config.actionReason });
+      try{
+        await message.delete({ reason: config.actionReason });
+        console.log(`Blocked scam link. ${log}`);
+      }
+      catch (error){
+        console.error(error);
+        await logChannel.send(config.actionErrorDelete);
+      }
       break;
 
     case 'BAN':
-      await message.delete({ reason: config.actionReason });
-      await message.guild.bans.create(message.author, { reason: config.actionReason });
+      try{
+        await message.delete({ reason: config.actionReason });
+        console.log(`Blocked scam link. ${log}`);
+      }
+      catch (error){
+        console.error(error);
+        await logChannel.send(config.actionErrorDelete);
+      }
+      try{
+        const logBAN = config.actionReason
+          .replace(/{MESSAGE}/g, message.content);
+        await message.guild.bans.create(message.author, { reason: logBAN});
+      }
+      catch (error){
+        console.error(error);
+        await logChannel.send(config.actionErrorBan);
+      }
       break;
 
     case 'IGNORE':
