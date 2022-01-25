@@ -6,5 +6,7 @@
   "embedOptions": {
     "description": "Scam link blocked! User: `{MENTION}` ({ID}) \nMessage: {MESSAGE}",
     "color": "#ff0000"
-  }
+  },
+  "actionErrorDelete": "Error occured. Message not deleted or not found",
+  "actionErrorBan": "Error occured. User likely not banned! (Perm error?)"
 }
