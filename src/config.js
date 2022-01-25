@@ -14,6 +14,8 @@ const config = {
   action: configData.action || 'DELETE',
   actionReason: configData.actionReason || 'AntiScam',
   embedOptions: configData.embedOptions || defaultEmbedOptions,
+  actionErrorDelete: configData.actionErrorDelete || 'Error occured. Message not deleted or not found',
+  actionErrorBan: configData.actionErrorBan || 'Error occured. User likely not banned! (Perm error?)',
 };
 
 export { config as default };
